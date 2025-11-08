@@ -1,11 +1,12 @@
 import os
 import re
+
+from joblib import Parallel, delayed
 import spacy
 
 import pandas as pd
 from langdetect import detect
-
-from multiprocessing import Pool
+from langdetect.lang_detect_exception import LangDetectException
 
 spacy_models = {
     'lt': spacy.load('lt_core_news_sm'),
@@ -13,27 +14,34 @@ spacy_models = {
     'de': spacy.load('de_core_news_sm'),
 }
 
-multilingual = spacy.load('xx_ent_wiki_sm')
 
-
-def pick_lang_model(text: str, spacy_models, multilingual):
+def pick_lang_model(text: str, spacy_models):
     """ Pasirinkti kalbos modeli. """
-    lang = detect(text)
+
+    if len(text) < 8:
+        return None
+
+    try:
+        lang = detect(text)
+    except (TypeError, LangDetectException):
+        return None
 
     if lang in spacy_models:
         return spacy_models[lang]
 
     else:
-        return multilingual
+        return None
 
 
 def remove_urls(text):
     url_pattern = re.compile(r'https?://\S+|www\.\S+')
     return url_pattern.sub('', text)
 
+
 def remove_emails(text):
     email_pattern = r'\S+@\S+'
     return re.sub(email_pattern, '', text)
+
 
 def get_ner_dict(doc):
     output = {
@@ -60,28 +68,49 @@ def get_ner_dict(doc):
 
     return output
 
-def parse_and_count_entities(data_row: dict, spacy_models, multilingual):
+
+def parse_and_count_entities(data_row: dict):
     # Prepare data
     text = data_row['item_description']
 
     text = remove_urls(text)
     text = remove_emails(text)
 
-    spacy_model = pick_lang_model(text, spacy_models, multilingual)
+    spacy_model = pick_lang_model(text, spacy_models)
+
+    # Jei nepagavo vienos is top 3 kalbu
+    if spacy_model is None:
+        data_row['ner_dict'] = None
+        data_row['embedding'] = None
+
+        return data_row
 
     doc = spacy_model(text)
     data_row['ner_dict'] = get_ner_dict(doc)
-
     data_row['embedding'] = doc.vector
 
     return data_row
 
+df = pd.read_csv(
+    "daiktai_cleaned.csv",
+    sep="ʃ",
+    engine="python",
+    on_bad_lines='skip'
+)
+df_records = df.to_dict('records')
 
-test_cases = [
-    {'item_description': 'Toks nuo S iki L  nugaroje juodas suvarstomas kaspinas, galima plotį reguliuotis iki XL'},
-    {'item_description': '41 dydis   Avalynė dėvėta, išvalius, nešiosote dar ilgai'},
-    {'item_description': 'Nauji, šilko užvalkalai sandratiniai pagalvei   51×66    Vienato kaina 35€ '}
-]
+with Parallel(
+    n_jobs=os.cpu_count() - 1,
+    mmap_mode=None,
+    backend="multiprocessing"
+) as parallel:
 
-for case in test_cases:
-    print(parse_and_count_entities(case, spacy_models, multilingual))
+    results = parallel(
+        delayed(parse_and_count_entities)( data_row )
+        for data_row in df_records
+    )
+print('Done')
+
+res_df = pd.DataFrame(results)
+res_df.dropna().to_csv('prepared_df.csv')
+print(res_df.head())
