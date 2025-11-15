@@ -14,6 +14,32 @@ spacy_models = {
     'de': spacy.load('de_core_news_sm'),
 }
 
+# https://github.com/explosion/spaCy/discussions/9147
+ALL_ENTITY_TYPES = [
+    "CARDINAL", 
+    "DATE", 
+    "EVENT", 
+    "FAC", 
+    "GPE", 
+    "LANGUAGE", 
+    "LAW", 
+    "LOC", 
+    "MONEY", 
+    "NORP", 
+    "ORDINAL", 
+    "ORG", 
+    "PERCENT", 
+    "PERSON", 
+    "PRODUCT", 
+    "QUANTITY", 
+    "TIME", 
+    "WORK_OF_ART",
+    "LOC", 
+    "MISC", 
+    "ORG", 
+    "PER"
+]
+
 
 def pick_lang_model(text: str, spacy_models):
     """ Pasirinkti kalbos modeli. """
@@ -44,27 +70,28 @@ def remove_emails(text):
 
 
 def get_ner_dict(doc):
+    
+    # Inicializuoti output dictionary su visais NER type'ais
     output = {
-        'numeric': 0,
-        'currency': 0
+        ent: 0
+        for ent in ALL_ENTITY_TYPES
     }
+
+    output['numeric'] = 0
+    output['currency'] = 0
 
     # spacy NER
     for ent in doc.ents:
-        if ent.label_ not in output:
-            output[ent.label_] = 1
-
-        else:
-            output[ent.label_] += 1
+        output[ent.label_] += 1 / len(doc)
 
     for tok in doc:
         # numerical
         if tok.is_digit:
-            output['numeric'] += 1
+            output['numeric'] += 1 / len(doc)
 
         # currency
         if tok.is_currency:
-            output['currency'] += tok.is_currency
+            output['currency'] += 1 / len(doc)
 
     return output
 
@@ -100,7 +127,7 @@ df = pd.read_csv(
 df_records = df.to_dict('records')
 
 with Parallel(
-    n_jobs=os.cpu_count() - 1,
+    n_jobs=os.cpu_count() - 2,
     mmap_mode=None,
     backend="multiprocessing"
 ) as parallel:
@@ -112,5 +139,9 @@ with Parallel(
 print('Done')
 
 res_df = pd.DataFrame(results)
-res_df.dropna().to_csv('prepared_df.csv')
+
+res_df[['Sub_Category_1', 'Sub_Category_2', 'ner_dict', 'embedding']]\
+    .dropna()\
+    .to_csv('prep_data.csv')
+
 print(res_df.head())
