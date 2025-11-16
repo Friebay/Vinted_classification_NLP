@@ -1,17 +1,20 @@
 import os
 import re
 
+import numpy as np
+from sklearn.preprocessing import LabelEncoder
 from joblib import Parallel, delayed
 import spacy
 
+from sklearn.model_selection import StratifiedShuffleSplit
 import pandas as pd
 from langdetect import detect
 from langdetect.lang_detect_exception import LangDetectException
 
 spacy_models = {
-    'lt': spacy.load('lt_core_news_sm'),
-    'en': spacy.load('en_core_web_sm'),
-    'de': spacy.load('de_core_news_sm'),
+    'lt': spacy.load('lt_core_news_lg'),
+    'en': spacy.load('en_core_web_lg'),
+    'de': spacy.load('de_core_news_lg'),
 }
 
 # https://github.com/explosion/spaCy/discussions/9147
@@ -117,17 +120,59 @@ def parse_and_count_entities(data_row: dict):
     data_row['embedding'] = doc.vector
 
     return data_row
+
+
+def tabular_data(res_df):
+    """ Paversti netvarkingus, dict ir arrray tipo stulpelius i atskirus lenteles stulpelius """
+
+    EMBED_SIZE = 300
+
+    for i in range(EMBED_SIZE):
+        res_df[f'embedding{i}'] = res_df['embedding'].apply(lambda x: x[i])
+
+    res_df.drop(columns='embedding', inplace=True)
+    df_ner = pd.json_normalize(res_df['ner_dict'])
+
+    df_ner.index = res_df.index
+
+    res_df = pd.concat([
+        res_df.drop(columns=['ner_dict']),
+        df_ner,
+    ], axis='columns')
+
+    return res_df
+
+
+def encode_categories(res_df):
+    cat1_encoder = LabelEncoder()
+    cat1_encoder.fit( res_df['Sub_Category_1'] )
+
+    np.save('classes.npy', cat1_encoder.classes_)
+
+    return cat1_encoder.transform(res_df['Sub_Category_1'])
+
+
 if __name__ == "__main__":
+
     df = pd.read_csv(
-        "daiktai_translated_small.csv",
+        "daiktai_translated.csv",
         sep="ʃ",
         engine="python",
         on_bad_lines='skip'
     )
-    df_records = df.to_dict('records')
 
+    df_sample = df.groupby('Sub_Category_1', group_keys=False)\
+        .apply(lambda x: x.sample(frac=0.05))
+
+    print(df_sample.shape)
+
+    df_records = df_sample.to_dict('records')
+
+    del df
+
+    # paralelizuoti parse_and_count_entities funkciją
     with Parallel(
-        n_jobs=os.cpu_count() - 2,
+        n_jobs=os.cpu_count() - 1,
         mmap_mode=None,
         backend="multiprocessing"
     ) as parallel:
@@ -136,12 +181,19 @@ if __name__ == "__main__":
             delayed(parse_and_count_entities)( data_row )
             for data_row in df_records
         )
-    print('Done')
 
+    # surinkti rezultatus
     res_df = pd.DataFrame(results)
+    res_df = res_df[['Sub_Category_1', 'ner_dict', 'embedding']]\
+        .dropna()
 
-    res_df[['Sub_Category_1', 'Sub_Category_2', 'ner_dict', 'embedding']]\
-        .dropna()\
-        .to_csv('prep_data.csv')
+    # dict ir array stulpelius "išpakuoti"
+    res_df = tabular_data(res_df)
 
-    print(res_df.head())
+    # užkoduoti kategoriją
+    category_encoded = encode_categories(res_df)
+    res_df['cat'] = category_encoded
+
+    res_df.drop(columns='Sub_Category_1', inplace=True)
+
+    res_df.to_csv('final_df.csv')

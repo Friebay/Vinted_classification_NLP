@@ -1,0 +1,14 @@
+tensorflow==2.20.0
+keras==3.11.3
+keras-tuner==1.4.7
+de_core_news_sm @ https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.8.0/de_core_news_sm-3.8.0-py3-none-any.whl#sha256=fec69fec52b1780f2d269d5af7582a5e28028738bd3190532459aeb473bfa3e7
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl#sha256=1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85
+lt_core_news_sm @ https://github.com/explosion/spacy-models/releases/download/lt_core_news_sm-3.8.0/lt_core_news_sm-3.8.0-py3-none-any.whl#sha256=c1f709112fd01771c10fbd2fe7e01d9d65712c8bccd9171065a29f91c9dc151e
+spacy==3.8.7
+langdetect==1.0.9
+matplotlib==3.10.6
+matplotlib-inline==0.1.7
+seaborn==0.13.2
+googletrans==4.0.2
+xgboost
+scikit-learn
