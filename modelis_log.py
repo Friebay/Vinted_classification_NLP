@@ -4,9 +4,9 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import StratifiedShuffleSplit
 
-df = pd.read_csv('final_df_1.csv')
+df = pd.read_csv('final_df_1.csv').drop(columns=['Unnamed: 0'])
 df = df.fillna(0.0)
-X = df.iloc[:, 2:].values
+X = df.drop(columns=['cat']).values
 y = df['cat'].values
 
 sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=1234)
