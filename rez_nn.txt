@@ -1,0 +1,334 @@
+C:\Users\Martynas\Downloads>python modelis_nn.py
+2025-11-18 00:14:07.075318: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-11-18 00:14:09.189598: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Loading data...
+Data loaded. Shape: (113674, 323)
+
+Splitting data into train/test sets...
+Train size: 90939, Test size: 22735
+
+Scaling features...
+Input size: 322
+Number of classes: 6
+
+============================================================
+Starting Neural Network hyperparameter search...
+============================================================
+
+Started: {'batch_size': 64, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+2025-11-18 00:14:15.076249: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Parameters: {'batch_size': 64, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5727341144521497
+
+Started: {'batch_size': 64, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.5651467080997004
+
+Started: {'batch_size': 64, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.6035196949509465
+
+Started: {'batch_size': 64, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5424909188570702
+
+Started: {'batch_size': 64, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5579121206884875
+
+Started: {'batch_size': 64, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.6101289067512096
+
+Started: {'batch_size': 64, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.5556232206924222
+
+Started: {'batch_size': 64, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5219447659607492
+
+Started: {'batch_size': 64, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5647969047130151
+
+Started: {'batch_size': 64, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.5619206368455214
+
+Started: {'batch_size': 64, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.5809213592595052
+
+Started: {'batch_size': 64, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5422180915336626
+
+Started: {'batch_size': 64, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5803889855510369
+
+Started: {'batch_size': 64, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.5625613505385554
+
+Started: {'batch_size': 64, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.6170010814935016
+
+Started: {'batch_size': 64, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 64, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.4726446586583803
+
+Started: {'batch_size': 128, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5494756293178917
+
+Started: {'batch_size': 128, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.56935210783534
+
+Started: {'batch_size': 128, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.5473222415064501
+
+Started: {'batch_size': 128, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5190312238965687
+
+Started: {'batch_size': 128, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5639127650283647
+
+Started: {'batch_size': 128, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.5917289658619541
+
+Started: {'batch_size': 128, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.5389575859862649
+
+Started: {'batch_size': 128, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5490860072727901
+
+Started: {'batch_size': 128, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5686247106851281
+
+Started: {'batch_size': 128, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.6118375667709629
+
+Started: {'batch_size': 128, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.6160803571737398
+
+Started: {'batch_size': 128, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5495812138315107
+
+Started: {'batch_size': 128, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5724299014389105
+
+Started: {'batch_size': 128, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.5935165201778191
+
+Started: {'batch_size': 128, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.6439584765240882
+
+Started: {'batch_size': 128, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 128, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5156826686561439
+
+Started: {'batch_size': 256, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5623010486606925
+
+Started: {'batch_size': 256, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.5580865229852829
+
+Started: {'batch_size': 256, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.5803764866731892
+
+Started: {'batch_size': 256, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.6122307470760907
+
+Started: {'batch_size': 256, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.566760294020681
+
+Started: {'batch_size': 256, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.5820798458692705
+
+Started: {'batch_size': 256, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.5716165120053477
+
+Started: {'batch_size': 256, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5689745815902175
+
+Started: {'batch_size': 256, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5689663086817391
+
+Started: {'batch_size': 256, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.582911023440471
+
+Started: {'batch_size': 256, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.5923291336644909
+
+Started: {'batch_size': 256, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5551983487466828
+
+Started: {'batch_size': 256, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5757942310838237
+
+Started: {'batch_size': 256, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.6099728077675511
+
+Started: {'batch_size': 256, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.616803332701961
+
+Started: {'batch_size': 256, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 256, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5544803847705343
+
+Started: {'batch_size': 512, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5469244921597712
+
+Started: {'batch_size': 512, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.5423270560985851
+
+Started: {'batch_size': 512, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.5698507694205047
+
+Started: {'batch_size': 512, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.01, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5624318849665049
+
+Started: {'batch_size': 512, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5724785765788803
+
+Started: {'batch_size': 512, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.6012522297132612
+
+Started: {'batch_size': 512, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.5462453517827162
+
+Started: {'batch_size': 512, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.05, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5900388634864496
+
+Started: {'batch_size': 512, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5584490255581943
+
+Started: {'batch_size': 512, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.6050386644898628
+
+Started: {'batch_size': 512, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.5678744372302508
+
+Started: {'batch_size': 512, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.1, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5935656228393946
+
+Started: {'batch_size': 512, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0001}
+F score: 0.5661816476134075
+
+Started: {'batch_size': 512, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.0005}
+F score: 0.5679897811951703
+
+Started: {'batch_size': 512, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+F score: 0.6032203668697808
+
+Started: {'batch_size': 512, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+Parameters: {'batch_size': 512, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.005}
+F score: 0.5988178389819748
+
+============================================================
+Training final model with best parameters...
+============================================================
+Best parameters: {'batch_size': 128, 'dropout_rate': 0.2, 'hidden_sizes': [256, 128, 64], 'learning_rate': 0.001}
+Best F-score: 0.6439584765240882
+
+Training final model for 100 epochs...
+Epoch 1/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 3ms/step - accuracy: 0.7321 - loss: 0.7139 - val_accuracy: 0.7854 - val_loss: 0.5600
+Epoch 2/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.7806 - loss: 0.5767 - val_accuracy: 0.7967 - val_loss: 0.5269
+Epoch 3/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.7925 - loss: 0.5421 - val_accuracy: 0.8001 - val_loss: 0.5180
+Epoch 4/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.8003 - loss: 0.5170 - val_accuracy: 0.8017 - val_loss: 0.5092
+Epoch 5/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.8077 - loss: 0.5010 - val_accuracy: 0.8059 - val_loss: 0.5026
+Epoch 6/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.8105 - loss: 0.4884 - val_accuracy: 0.8106 - val_loss: 0.4957
+Epoch 7/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 1s 2ms/step - accuracy: 0.8152 - loss: 0.4778 - val_accuracy: 0.8123 - val_loss: 0.4936
+Epoch 8/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.8194 - loss: 0.4656 - val_accuracy: 0.8122 - val_loss: 0.4935
+Epoch 9/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.8242 - loss: 0.4538 - val_accuracy: 0.8155 - val_loss: 0.4908
+Epoch 10/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.8275 - loss: 0.4432 - val_accuracy: 0.8172 - val_loss: 0.4822
+Epoch 11/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.8284 - loss: 0.4366 - val_accuracy: 0.8150 - val_loss: 0.4900
+Epoch 12/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.8321 - loss: 0.4308 - val_accuracy: 0.8168 - val_loss: 0.4928
+Epoch 13/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 1s 2ms/step - accuracy: 0.8339 - loss: 0.4225 - val_accuracy: 0.8141 - val_loss: 0.4923
+Epoch 14/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.8381 - loss: 0.4145 - val_accuracy: 0.8186 - val_loss: 0.4906
+Epoch 15/500
+640/640 ━━━━━━━━━━━━━━━━━━━━ 2s 2ms/step - accuracy: 0.8420 - loss: 0.4075 - val_accuracy: 0.8178 - val_loss: 0.4877
+
+============================================================
+Final Model Evaluation:
+============================================================
+Accuracy: 0.8175940180338684
+Recall (per class): [0.18918919 0.91726023 0.57142857 0.8180593  0.78011155 0.15767974]
+Precision (per class): [1.         0.80698047 0.64390244 0.81916329 0.84509577 0.69175627]
+F1-score (macro): 0.6115025279432812
+F1-score (micro): 0.8175940180338684
+
+Confusion Matrix:
+[[    7     8     1     0    20     1]
+ [    0 11075    23    18   896    62]
+ [    0    39   132     8    52     0]
+ [    0    44     5   607    83     3]
+ [    0  1686    42   105  6574    20]
+ [    0   872     2     3   154   193]]
+
+Model saved to 'best_nn_model.keras'
+Scaler saved to 'scaler.joblib'
+
+C:\Users\Martynas\Downloads>

@@ -1,0 +1,143 @@
+C:\Users\Martynas\Downloads>python "modelis(1).py"
+Loading data...
+Data loaded. Shape: (113674, 323)
+
+Splitting data into train/test sets...
+Train size: 90939, Test size: 22735
+
+============================================================
+Starting XGBoost hyperparameter search...
+============================================================
+
+Started: {'learning_rate': 0.05, 'max_depth': 8, 'n_estimators': 200}
+Parametrai: {'learning_rate': 0.05, 'max_depth': 8, 'n_estimators': 200}
+F matas: 0.4692116004416636
+
+Started: {'learning_rate': 0.05, 'max_depth': 8, 'n_estimators': 400}
+Parametrai: {'learning_rate': 0.05, 'max_depth': 8, 'n_estimators': 400}
+F matas: 0.49246982699322933
+
+Started: {'learning_rate': 0.05, 'max_depth': 8, 'n_estimators': 600}
+Parametrai: {'learning_rate': 0.05, 'max_depth': 8, 'n_estimators': 600}
+F matas: 0.50106823329934
+
+Started: {'learning_rate': 0.05, 'max_depth': 12, 'n_estimators': 200}
+Parametrai: {'learning_rate': 0.05, 'max_depth': 12, 'n_estimators': 200}
+F matas: 0.4549315676315246
+
+Started: {'learning_rate': 0.05, 'max_depth': 12, 'n_estimators': 400}
+Parametrai: {'learning_rate': 0.05, 'max_depth': 12, 'n_estimators': 400}
+F matas: 0.48446020955852415
+
+Started: {'learning_rate': 0.05, 'max_depth': 12, 'n_estimators': 600}
+Parametrai: {'learning_rate': 0.05, 'max_depth': 12, 'n_estimators': 600}
+F matas: 0.49163001018090063
+
+Started: {'learning_rate': 0.05, 'max_depth': 16, 'n_estimators': 200}
+Parametrai: {'learning_rate': 0.05, 'max_depth': 16, 'n_estimators': 200}
+F matas: 0.45418160663876267
+
+Started: {'learning_rate': 0.05, 'max_depth': 16, 'n_estimators': 400}
+Parametrai: {'learning_rate': 0.05, 'max_depth': 16, 'n_estimators': 400}
+F matas: 0.4786059138708639
+
+Started: {'learning_rate': 0.05, 'max_depth': 16, 'n_estimators': 600}
+Parametrai: {'learning_rate': 0.05, 'max_depth': 16, 'n_estimators': 600}
+F matas: 0.487393762500231
+
+Started: {'learning_rate': 0.1, 'max_depth': 8, 'n_estimators': 200}
+Parametrai: {'learning_rate': 0.1, 'max_depth': 8, 'n_estimators': 200}
+F matas: 0.4927832935810175
+
+Started: {'learning_rate': 0.1, 'max_depth': 8, 'n_estimators': 400}
+Parametrai: {'learning_rate': 0.1, 'max_depth': 8, 'n_estimators': 400}
+F matas: 0.5080507751523023
+
+Started: {'learning_rate': 0.1, 'max_depth': 8, 'n_estimators': 600}
+Parametrai: {'learning_rate': 0.1, 'max_depth': 8, 'n_estimators': 600}
+F matas: 0.5153116568306061
+
+Started: {'learning_rate': 0.1, 'max_depth': 12, 'n_estimators': 200}
+Parametrai: {'learning_rate': 0.1, 'max_depth': 12, 'n_estimators': 200}
+F matas: 0.4802481709087376
+
+Started: {'learning_rate': 0.1, 'max_depth': 12, 'n_estimators': 400}
+Parametrai: {'learning_rate': 0.1, 'max_depth': 12, 'n_estimators': 400}
+F matas: 0.4975788396619866
+
+Started: {'learning_rate': 0.1, 'max_depth': 12, 'n_estimators': 600}
+Parametrai: {'learning_rate': 0.1, 'max_depth': 12, 'n_estimators': 600}
+F matas: 0.5064450006128477
+
+Started: {'learning_rate': 0.1, 'max_depth': 16, 'n_estimators': 200}
+Parametrai: {'learning_rate': 0.1, 'max_depth': 16, 'n_estimators': 200}
+F matas: 0.4797219853295323
+
+Started: {'learning_rate': 0.1, 'max_depth': 16, 'n_estimators': 400}
+Parametrai: {'learning_rate': 0.1, 'max_depth': 16, 'n_estimators': 400}
+F matas: 0.49723840543569126
+
+Started: {'learning_rate': 0.1, 'max_depth': 16, 'n_estimators': 600}
+Parametrai: {'learning_rate': 0.1, 'max_depth': 16, 'n_estimators': 600}
+F matas: 0.5038846928343629
+
+Started: {'learning_rate': 0.2, 'max_depth': 8, 'n_estimators': 200}
+Parametrai: {'learning_rate': 0.2, 'max_depth': 8, 'n_estimators': 200}
+F matas: 0.510628358338091
+
+Started: {'learning_rate': 0.2, 'max_depth': 8, 'n_estimators': 400}
+Parametrai: {'learning_rate': 0.2, 'max_depth': 8, 'n_estimators': 400}
+F matas: 0.5201123448592867
+
+Started: {'learning_rate': 0.2, 'max_depth': 8, 'n_estimators': 600}
+Parametrai: {'learning_rate': 0.2, 'max_depth': 8, 'n_estimators': 600}
+F matas: 0.5266460639376721
+
+Started: {'learning_rate': 0.2, 'max_depth': 12, 'n_estimators': 200}
+Parametrai: {'learning_rate': 0.2, 'max_depth': 12, 'n_estimators': 200}
+F matas: 0.5000794137760881
+
+Started: {'learning_rate': 0.2, 'max_depth': 12, 'n_estimators': 400}
+Parametrai: {'learning_rate': 0.2, 'max_depth': 12, 'n_estimators': 400}
+F matas: 0.5086101287813157
+
+Started: {'learning_rate': 0.2, 'max_depth': 12, 'n_estimators': 600}
+Parametrai: {'learning_rate': 0.2, 'max_depth': 12, 'n_estimators': 600}
+F matas: 0.5182985725442025
+
+Started: {'learning_rate': 0.2, 'max_depth': 16, 'n_estimators': 200}
+Parametrai: {'learning_rate': 0.2, 'max_depth': 16, 'n_estimators': 200}
+F matas: 0.49894780247564635
+
+Started: {'learning_rate': 0.2, 'max_depth': 16, 'n_estimators': 400}
+Parametrai: {'learning_rate': 0.2, 'max_depth': 16, 'n_estimators': 400}
+F matas: 0.5123750103296572
+
+Started: {'learning_rate': 0.2, 'max_depth': 16, 'n_estimators': 600}
+Parametrai: {'learning_rate': 0.2, 'max_depth': 16, 'n_estimators': 600}
+F matas: 0.5140358065227324
+
+============================================================
+Training final model with best parameters...
+============================================================
+Best parameters: {'learning_rate': 0.2, 'max_depth': 8, 'n_estimators': 600}
+Best F-score: 0.5266460639376721
+
+============================================================
+Final Model Evaluation:
+============================================================
+Accuracy: 0.8062458764020233
+Recall (per class): [0.05405405 0.90392579 0.3030303  0.70080863 0.79435149 0.10620915]
+Precision (per class): [1.         0.8027361  0.75268817 0.90277778 0.80806374 0.70652174]
+F1-score (macro): 0.5266460639376721
+F1-score (micro): 0.8062458764020233
+
+Confusion Matrix:
+[[    2    10     0     0    24     1]
+ [    0 10914     9     8  1105    38]
+ [    0    71    70     7    83     0]
+ [    0    50     1   520   169     2]
+ [    0  1668    13    39  6694    13]
+ [    0   883     0     2   209   130]]
+
+Model saved to 'best_xgb_model.joblib'
