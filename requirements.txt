@@ -12,3 +12,4 @@ seaborn==0.13.2
 googletrans==4.0.2
 xgboost
 scikit-learn
+deep_translator
