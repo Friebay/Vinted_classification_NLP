@@ -11,21 +11,16 @@ import joblib
 
 
 def create_model(input_size, hidden_sizes, num_classes, dropout_rate, learning_rate):
-    """Create a feed-forward neural network model"""
     model = models.Sequential()
     
-    # Input layer
     model.add(layers.Input(shape=(input_size,)))
-    
-    # Hidden layers
+
     for i, hidden_size in enumerate(hidden_sizes):
         model.add(layers.Dense(hidden_size, activation='relu', name=f'hidden_{i+1}'))
         model.add(layers.Dropout(dropout_rate, name=f'dropout_{i+1}'))
     
-    # Output layer
     model.add(layers.Dense(num_classes, activation='softmax', name='output'))
     
-    # Compile model
     model.compile(
         optimizer=keras.optimizers.Adam(learning_rate=learning_rate),
         loss='sparse_categorical_crossentropy',
@@ -40,38 +35,24 @@ def main():
     np.random.seed(1234)
     tf.random.set_seed(1234)
     
-    # Load data
-    print("Loading data...")
     df = pd.read_csv('final_df_1.csv').drop(columns=['Unnamed: 0'])
     print(f"Data loaded. Shape: {df.shape}")
     
-    # Split data
-    print("\nSplitting data into train/test sets...")
     X_train, X_test, y_train, y_test = train_test_split(
         df.iloc[:, :-1], 
         df.iloc[:, -1], 
         test_size=0.2, 
         random_state=1
     )
-    print(f"Train size: {len(X_train)}, Test size: {len(X_test)}")
-    
-    # Scale features
-    print("\nScaling features...")
+
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
     
-    # Get dimensions
     input_size = X_train_scaled.shape[1]
     num_classes = len(np.unique(y_train))
-    
-    print(f"Input size: {input_size}")
-    print(f"Number of classes: {num_classes}")
-    
-    # Neural Network hyperparameter search
-    print("\n" + "="*60)
-    print("Starting Neural Network hyperparameter search...")
-    print("="*60)
+
+    print("Starting neural network hyperparameter search")
     
     param_dist = {
         'learning_rate': [0.0001, 0.0005, 0.001, 0.005],
@@ -88,7 +69,6 @@ def main():
     for params in ParameterGrid(param_dist):
         print('\nStarted:', params)
         
-        # Create model
         model = create_model(
             input_size=input_size,
             hidden_sizes=params['hidden_sizes'],
@@ -115,7 +95,6 @@ def main():
         )
 
         
-        # Evaluate on test set
         y_pred_proba = model.predict(X_test_scaled, verbose=0)
         y_pred = np.argmax(y_pred_proba, axis=1)
         
@@ -128,10 +107,8 @@ def main():
         
         print('Parameters:', params, '\nF score:', f_score_iter)
     
-    # Train final model with best parameters
-    print("\n" + "="*60)
-    print("Training final model with best parameters...")
-    print("="*60)
+    print("\n")
+    print("Training final model with best parameters")
     print(f"Best parameters: {best_params}")
     print(f"Best F-score: {best_fscore}")
     
@@ -144,7 +121,7 @@ def main():
         learning_rate=best_params['learning_rate']
     )
     
-    print("\nTraining final model for 100 epochs...")
+    print("\nTraining final model")
     early_stop = keras.callbacks.EarlyStopping(
         monitor='val_loss',
         patience=5,
@@ -167,26 +144,22 @@ def main():
     y_pred_proba_final = final_model.predict(X_test_scaled, verbose=0)
     y_pred_final = np.argmax(y_pred_proba_final, axis=1)
     
-    print("\n" + "="*60)
+    print("\n")
     print("Final Model Evaluation:")
-    print("="*60)
     print('Accuracy:', accuracy_score(y_test, y_pred_final))
     print('Recall (per class):', recall_score(y_test, y_pred_final, average=None))
     print('Precision (per class):', precision_score(y_test, y_pred_final, average=None))
     print('F1-score (macro):', f1_score(y_test, y_pred_final, average='macro'))
     print('F1-score (micro):', f1_score(y_test, y_pred_final, average='micro'))
     
-    # Confusion matrix
     print('\nConfusion Matrix:')
     print(confusion_matrix(y_test, y_pred_final))
 
-    # Save the model and scaler
     final_model.save('best_nn_model.keras')
     joblib.dump(scaler, 'scaler.joblib')
     joblib.dump(best_params, 'best_params.joblib')
 
     print("\nModel saved to 'best_nn_model.keras'")
-    print("Scaler saved to 'scaler.joblib'")
     
     return final_model, best_params, scaler
 
