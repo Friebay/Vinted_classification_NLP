@@ -33,3 +33,4 @@ Naudoti būtent šie dokumentacijos puslapiai:
 - https://scikit-learn.org/stable/modules/sgd.html
 - Apie SGDClassifier nauodjimą logistinei regresijai https://medium.com/@juanc.olamendy/sgdclassifier-the-powerhouse-for-large-scale-classification-9ae2369d57fb
 - Apie tai ar žiūrėti į tikslumą, ar paklaidą apmokant modelį https://datascience.stackexchange.com/questions/37186/early-stopping-on-validation-loss-or-on-accuracy
+- Klasifikavimo matricos spalva `sns.cubehelix_palette(as_cmap=True)` paimta iš https://seaborn.pydata.org/tutorial/color_palettes.html
