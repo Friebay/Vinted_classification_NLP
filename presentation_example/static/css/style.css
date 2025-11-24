@@ -1,0 +1,321 @@
+/* Reset & Basic Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Maison Neue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #F2F4F5;
+    color: #171717;
+    font-size: 16px;
+}
+
+/* --- Header Section --- */
+header {
+    background-color: white;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 20px 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    gap: 20px;
+}
+
+.logo {
+    color: #007782;
+    font-family: cursive;
+    /* simulating the Binted logo font */
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    flex-grow: 1;
+    background-color: #F2F4F5;
+    border-radius: 4px;
+    padding: 8px 12px;
+    align-items: center;
+    max-width: 600px;
+}
+
+.search-dropdown {
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-right: 1px solid #ddd;
+    padding-right: 10px;
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    flex-grow: 1;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Header Icons & Actions */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #757575;
+}
+
+.icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn-sell-header {
+    background-color: #007782;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.lang-select {
+    color: #757575;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    padding: 15px 0;
+    border-top: 1px solid #f5f5f5;
+    font-size: 14px;
+    color: #666;
+}
+
+.nav-links span {
+    cursor: pointer;
+}
+
+.nav-links span:hover {
+    color: #007782;
+}
+
+/* --- Main Content --- */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Cards Shared Style */
+.card {
+    background: white;
+    border-radius: 4px;
+    /* minimal radius as per screenshot */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+/* Photo Upload Area */
+.upload-area {
+    border: 2px dashed #D8D8D8;
+    border-radius: 4px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: #fcfcfc;
+}
+
+.btn-upload-photo {
+    border: 1px solid #007782;
+    color: #007782;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-upload-photo:hover {
+    background-color: #f2fcfc;
+}
+
+.tip-box {
+    background-color: #EBF6F7;
+    padding: 16px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    color: #4d4d4d;
+    font-size: 14px;
+}
+
+.tip-box a {
+    color: #007782;
+    text-decoration: underline;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* Form Inputs */
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.form-row:last-child {
+    border-bottom: none;
+}
+
+.form-row label {
+    font-weight: 500;
+    color: #171717;
+    width: 30%;
+}
+
+.form-input-container {
+    width: 70%;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #E6E6E6;
+    /* Replicating the line-only look in detailed view */
+    padding: 8px 0;
+    font-size: 16px;
+    outline: none;
+    font-family: inherit;
+}
+
+/* Sometimes Binted uses full box inputs for price/category, recreating screenshot 2 style */
+.input-box-style {
+    border: none;
+    width: 100%;
+    background: white;
+    font-size: 16px;
+    color: #757575;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+    height: 40px;
+    /* Collapsed state */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #757575;
+}
+
+input:focus,
+textarea:focus {
+    border-bottom: 2px solid #007782;
+}
+
+/* Feedback Section */
+.check-category-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.check-category-text {
+    color: #666;
+}
+
+.btn-check-category {
+    border: 1px solid #007782;
+    color: #007782;
+    background: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Bottom Actions */
+.bottom-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-bottom: 40px;
+}
+
+.btn-save {
+    border: 1px solid #007782;
+    color: #007782;
+    background: white;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-upload {
+    border: none;
+    background-color: #007782;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-upload:hover {
+    background-color: #00646d;
+}
+
+select.input-box-style {
+    width: 100%;
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    color: #757575;
+    padding: 8px 0;
+    cursor: pointer;
+    outline: none;
+    /* Custom arrow to match the design */
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="%23757575"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right center;
+}

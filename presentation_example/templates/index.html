@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Įkelti prekę | Binted</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="top-bar">
+            <a href="#" class="logo">Binted</a>
+
+            <div class="search-container">
+                <button class="search-dropdown">Katalogas ▼</button>
+                <input type="text" class="search-input" placeholder="Search for items">
+            </div>
+
+            <div class="user-actions">
+                <span class="icon">✉️</span>
+                <span class="icon">🔔</span>
+                <span class="icon">♥️</span>
+                <div style="width: 24px; height: 24px; background: purple; border-radius: 50%;"></div>
+                <button class="btn-sell-header">Parduoti dabar</button>
+                <span class="icon">?</span>
+                <span class="lang-select">LT ▼</span>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <span>Moterims</span>
+            <span>Vyrams</span>
+            <span>Dizainerių prekės</span>
+            <span>Vaikams</span>
+            <span>Namams</span>
+            <span>Elektronika</span>
+            <span>Pramogos</span>
+            <span>Hobiams ir kolekcijoms</span>
+            <span>Sportui</span>
+            <span>Apie</span>
+            <span>Mūsų platforma</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Įkelti prekę</h1>
+
+        <div class="card">
+            <div class="upload-area">
+                <button class="btn-upload-photo">
+                    <span>+</span> Įkelti nuotraukų
+                </button>
+            </div>
+            <div class="tip-box">
+                <span>📷 &nbsp; Atkreipk pirkėjų dėmesį kokybiškomis nuotraukomis. <a href="#">Sužinok kaip</a></span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="form-row">
+                <label>Pavadinimas</label>
+                <div class="form-input-container">
+                    <input type="text" id="input-title" placeholder="Papasakok pirkėjams, ką parduodi">
+                </div>
+            </div>
+            <div class="form-row">
+                <label>Aprašyk savo prekę</label>
+                <div class="form-input-container">
+                    <textarea id="input-description" placeholder="Papasakok daugiau apie prekę"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="form-row">
+                <label>Kategorija</label>
+                <div class="form-input-container">
+                    <select class="input-box-style" id="input-category">
+                        <option value="" disabled selected hidden>Pasirink kategoriją</option>
+                        <option>Gyvūnams</option>
+                        <option>Moterims</option>
+                        <option>Namams</option>
+                        <option>Pramogos</option>
+                        <option>Vaikams</option>
+                        <option>Vyrams</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="form-row">
+                <label>Price</label>
+                <div class="form-input-container">
+                    <div class="input-box-style">
+                        <span style="color: #ccc;">0,00 €</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="check-category-row">
+                <span class="check-category-text">Patikrinti, ar pasirinkta kategorija yra teisinga?</span>
+                <button class="btn-check-category">Patikrinti kategoriją</button>
+            </div>
+        </div>
+
+        <div class="bottom-actions">
+            <button class="btn-save">Išsaugoti juodraštį</button>
+            <button class="btn-upload">Įkelti</button>
+        </div>
+
+    </div>
+
+    <script>
+        document.querySelector('.btn-check-category').addEventListener('click', function () {
+        const title = document.getElementById('input-title').value;
+        const description = document.getElementById('input-description').value;
+        const category = document.getElementById('input-category').value;
+        fetch('/classify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: title,
+                description: description
+            }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    let alertMessage = "Dabartinė kategorija: " + category + "\nRekomenduojama kateogorija: " + data.category;
+                    
+                    if (category !== data.category) {
+                        alertMessage += "\n\nKategorijos nesutampa. Ar teisingai įvedėte savo prekės kategoriją?";
+                    }
+                    else {
+                        alertMessage += "\n\nKategorijos sutampa!";
+                    }
+                    
+                    alert(alertMessage);
+                } else {
+                    alert("Klaida gaunant kategoriją.");
+                }
+            })
+            .catch((error) => {
+                console.error('Klaida:', error);
+            });
+    });
+    </script>
+
+</body>
+
+</html>
